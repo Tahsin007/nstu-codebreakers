@@ -1,67 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'my_light_colors.dart';
+import 'colors.dart';
 
 class MyTextTheme {
-  static final lightTextTheme = TextTheme(
-    headlineMedium: GoogleFonts.sofadiOne(
-      fontSize: 24,
-      fontWeight: FontWeight.w700,
-      color: MyLightColors.surface,
-    ),
-    headlineSmall: GoogleFonts.sofadiOne(
-      fontSize: 20,
-      fontWeight: FontWeight.w700,
-      color: MyLightColors.shadow,
-    ),
-    bodyLarge: GoogleFonts.sofadiOne(
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-      color: MyLightColors.dark,
-    ),
-    displayLarge: GoogleFonts.sofadiOne(
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-      color: MyLightColors.surface,
-    ),
-    bodyMedium: GoogleFonts.sofadiOne(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      color: MyLightColors.shadow,
-    ),
-    bodySmall: GoogleFonts.sofadiOne(
-      fontSize: 12,
-      fontWeight: FontWeight.w500,
-      color: MyLightColors.shadow,
-    ),
-  );
-
-  static final darkTextTheme = TextTheme(
-    headlineMedium: GoogleFonts.sofadiOne(
+  static final myLightTextTheme = TextTheme(
+    headlineLarge: GoogleFonts.poppins(
       fontSize: 24,
       fontWeight: FontWeight.w700,
       color: MyLightColors.secondary,
     ),
-    headlineSmall: GoogleFonts.sofadiOne(
-      fontSize: 20,
-      fontWeight: FontWeight.w700,
-      color: MyLightColors.tertiary,
+    headlineSmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: MyLightColors.shadow,
     ),
-    bodyLarge: GoogleFonts.sofadiOne(
+    bodyLarge: GoogleFonts.poppins(
       fontSize: 16,
       fontWeight: FontWeight.w500,
-      color: MyLightColors.white,
+      color: MyLightColors.shadow,
     ),
-    bodyMedium: GoogleFonts.sofadiOne(
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      color: MyLightColors.tertiary,
-    ),
-    bodySmall: GoogleFonts.sofadiOne(
+    bodyMedium: GoogleFonts.poppins(
       fontSize: 12,
+      fontWeight: FontWeight.w300,
+      color: MyLightColors.secondary,
+    ),
+    bodySmall: GoogleFonts.poppins(
+      fontSize: 11,
       fontWeight: FontWeight.w500,
-      color: MyLightColors.tertiary,
+      color: MyLightColors.shadow,
+    ),
+  );
+  static final myDarkTextTheme = TextTheme(
+    headlineLarge: GoogleFonts.poppins(
+      fontSize: 24,
+      fontWeight: FontWeight.w700,
+      color: MyDarkColors.secondary,
+    ),
+    headlineSmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: MyDarkColors.secondary,
+    ),
+    bodyLarge: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: MyDarkColors.secondary,
+    ),
+    bodyMedium: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w300,
+      color: MyDarkColors.secondary,
+    ),
+    bodySmall: GoogleFonts.poppins(
+      fontSize: 11,
+      fontWeight: FontWeight.w500,
+      color: MyDarkColors.secondary,
     ),
   );
 }

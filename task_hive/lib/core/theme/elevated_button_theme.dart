@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
-import 'my_light_colors.dart';
 
-class MyElevatedButtonTheme {
-  static const myElevatedButtonLightTheme = ElevatedButtonThemeData(
+import 'colors.dart';
+
+class MyElevatedfButtonTheme {
+  static final myElevatedfButtonTheme = ElevatedButtonThemeData(
     style: ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(MyLightColors.primary),
+      backgroundColor: const WidgetStatePropertyAll(
+        Color(0xFFDADBDC),
+      ),
+      minimumSize: const WidgetStatePropertyAll(
+        Size(double.infinity, 55),
+      ),
+      foregroundColor: const WidgetStatePropertyAll(
+        MyLightColors.secondary,
+      ),
+      shape: WidgetStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
     ),
   );
 }

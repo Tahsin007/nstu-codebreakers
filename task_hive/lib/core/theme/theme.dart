@@ -1,41 +1,39 @@
 import 'package:flutter/material.dart';
 
+import 'colors.dart';
 import 'elevated_button_theme.dart';
-import 'hint_decoration.dart';
-import 'my_dark_colors.dart';
-import 'my_light_colors.dart';
+import 'input_decoration_theme.dart';
 import 'text_theme.dart';
 
-class MyThemeClass {
+class ThemeClass {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    appBarTheme: const AppBarTheme(
-      foregroundColor: MyLightColors.surface,
-      color: MyLightColors.primary,
-    ),
+    brightness: Brightness.light,
     colorScheme: const ColorScheme.light(
       primary: MyLightColors.primary,
       secondary: MyLightColors.secondary,
       surface: MyLightColors.surface,
       shadow: MyLightColors.shadow,
     ),
-    textTheme: MyTextTheme.lightTextTheme,
-    elevatedButtonTheme: MyElevatedButtonTheme.myElevatedButtonLightTheme,
-    inputDecorationTheme: MyInputDecorationTheme.inputDecorationTheme,
+    textTheme: MyTextTheme.myLightTextTheme,
+    inputDecorationTheme: MyInputDecorationTheme.myInputDecorationTheme,
+    elevatedButtonTheme: MyElevatedfButtonTheme.myElevatedfButtonTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    colorScheme: const ColorScheme.light(
+    brightness: Brightness.dark,
+    colorScheme: const ColorScheme.dark(
       primary: MyDarkColors.primary,
       secondary: MyDarkColors.secondary,
       surface: MyDarkColors.surface,
       shadow: MyDarkColors.shadow,
     ),
     appBarTheme: const AppBarTheme(
-      foregroundColor: MyLightColors.secondary,
+      foregroundColor: MyLightColors.surface,
     ),
-    textTheme: MyTextTheme.darkTextTheme,
-    inputDecorationTheme: MyInputDecorationTheme.inputDecorationTheme,
+    textTheme: MyTextTheme.myDarkTextTheme,
+    inputDecorationTheme: MyInputDecorationTheme.myDarkInputDecorationTheme,
+    elevatedButtonTheme: MyElevatedfButtonTheme.myElevatedfButtonTheme,
   );
 }
