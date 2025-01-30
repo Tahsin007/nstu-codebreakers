@@ -18,8 +18,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenSize = MediaQuery.of(context).size.width;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
