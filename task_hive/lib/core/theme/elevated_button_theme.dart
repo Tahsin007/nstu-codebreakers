@@ -6,18 +6,18 @@ class MyElevatedfButtonTheme {
   static final myElevatedfButtonTheme = ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: const WidgetStatePropertyAll(
-        Color(0xFFDADBDC),
+        AppColors.brand,
       ),
       minimumSize: const WidgetStatePropertyAll(
         Size(double.infinity, 55),
       ),
-      foregroundColor: const WidgetStatePropertyAll(
-        MyLightColors.secondary,
-      ),
       shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
         ),
+      ),
+      foregroundColor: const WidgetStatePropertyAll(
+        Colors.white,
       ),
     ),
   );

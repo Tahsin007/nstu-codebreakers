@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_hive/core/extensions/app_extension.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -18,6 +19,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -37,7 +40,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(height: 20),
                 Text(
                   'Sign In',
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: textTheme.textxlBold.copyWith(color: scheme.textColor),
                 ),
                 const SizedBox(height: 30),
                 TextField(
@@ -56,8 +59,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Text('Sign In',
-                      style: Theme.of(context).textTheme.displayLarge),
+                  child: Text(
+                    'Sign In',
+                    // style: textTheme.text2xlMedium.copyWith(
+                    //   color: scheme.textColor,
+                    // ),
+                  ),
                 ),
                 const SizedBox(height: 20),
                 InkWell(
