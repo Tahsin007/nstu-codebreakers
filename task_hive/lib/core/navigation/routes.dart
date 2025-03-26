@@ -9,5 +9,6 @@ class MyRoutes {
   static String signInRoute = 'signIn';
   static String signUpRoute = 'signUp';
   static String otpRoute = 'otp';
+  static String otpSuccess = 'otpSuccess';
   static String forgotPassword = 'forgotPassword';
 }

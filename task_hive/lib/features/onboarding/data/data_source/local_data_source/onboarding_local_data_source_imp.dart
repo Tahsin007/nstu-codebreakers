@@ -1,4 +1,3 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../../core/database_service/local/shared_preference_service.dart';

@@ -119,7 +119,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget _signUpButton(TextTheme textTheme) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        context.go("/${MyRoutes.otpRoute}");
+      },
       child: Text(
         'Register',
         style: textTheme.textSmRegular,

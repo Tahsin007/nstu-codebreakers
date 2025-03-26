@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:task_hive/core/extensions/app_extension.dart';
-import 'package:task_hive/core/navigation/router_config.dart';
 import 'package:task_hive/core/widgets/custom_input_field.dart';
 
 import '../../../../core/navigation/routes.dart';

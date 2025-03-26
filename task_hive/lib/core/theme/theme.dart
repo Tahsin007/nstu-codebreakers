@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
 import 'elevated_button_theme.dart';
 import 'input_decoration_theme.dart';
-import 'text_theme.dart';
 
 class ThemeClass {
   static ThemeData lightTheme = ThemeData(

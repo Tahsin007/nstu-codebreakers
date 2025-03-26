@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:task_hive/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/signin_screen.dart';
+import 'package:task_hive/features/auth/presentation/screens/verification_screen.dart';
+import 'package:task_hive/features/auth/presentation/screens/verification_success.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_1.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_2.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/splash_screen.dart';
@@ -44,6 +46,12 @@ class MyRouterConfig {
         path: "/${MyRoutes.signUpRoute}",
         builder: (context, state) => const SignUpScreen(),
       ),
+      GoRoute(path: "/${MyRoutes.otpRoute}",
+        builder: (context, state) => const VerificationScreen(),
+      ),
+      GoRoute(path: "/${MyRoutes.otpSuccess}",
+        builder: (context, state) => const SuccessVerificationScreen(),
+      )
     ],
   );
 }
