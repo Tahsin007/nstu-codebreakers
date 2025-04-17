@@ -13,4 +13,6 @@ class MyRoutes {
 
   static String signInRoute = '/signIn';
   static String profile = '/profile';
+
+  static String home = '/home';
 }
