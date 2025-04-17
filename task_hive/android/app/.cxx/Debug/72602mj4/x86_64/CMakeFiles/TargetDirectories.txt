@@ -1,0 +1,2 @@
+F:/nstu-codebreakers/task_hive/android/app/.cxx/Debug/72602mj4/x86_64/CMakeFiles/edit_cache.dir
+F:/nstu-codebreakers/task_hive/android/app/.cxx/Debug/72602mj4/x86_64/CMakeFiles/rebuild_cache.dir
