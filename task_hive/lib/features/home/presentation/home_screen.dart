@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
         date: DateTime.now().add(const Duration(days: 1)),
         status: 'In Transit',
         assignee: ['Tahsin', 'Mamun', 'Rafi'],
-        bgColor: Colors.deepPurple,
         priority: 'High',
       percentage: 50
 
@@ -35,7 +34,6 @@ class _HomePageState extends State<HomePage> {
         date: DateTime.now().add(const Duration(days: 2)),
         status: 'Processing',
         assignee: ['Tahsin', 'Mamun', 'Rafi'],
-        bgColor: Colors.blue,
         priority: 'Low',
         percentage: 30,
     ),
@@ -45,7 +43,6 @@ class _HomePageState extends State<HomePage> {
       date: DateTime.now().add(const Duration(days: 3)),
       status: 'Scheduled',
       assignee: ['Tahsin','Mamun','Rafi'],
-      bgColor: Colors.deepOrange,
       priority: 'Medium',
       percentage: 60
 
@@ -61,7 +58,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
-
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     final formattedDate = _formatDate(now);
 
     return Scaffold(
@@ -92,29 +90,20 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 20),
 
               // Welcome message
-              const Text(
+              Text(
                 'Welcome Phillip',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: textTheme.displaySmall?.copyWith(color: colorScheme.onSurface)
               ),
-              const Text(
+              Text(
                 'Have a nice day!',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
+                style:textTheme.bodyLarge
               ),
               const SizedBox(height: 20),
 
               // Priority tasks section
-              const Text(
+              Text(
                 'My Priority Task',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style:textTheme.headlineMedium
               ),
               const SizedBox(height: 15),
 
@@ -152,12 +141,9 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 20),
 
               // Delivery tasks section
-              const Text(
+              Text(
                 'Upcoming Deliveries',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: textTheme.headlineMedium,
               ),
               const SizedBox(height: 15),
 
@@ -174,7 +160,6 @@ class _HomePageState extends State<HomePage> {
                             dueDate: _deliveryTasks[index].date.toString(),
                             progressPercentage: _deliveryTasks[index].percentage,
                             assignees:_deliveryTasks[index].assignee,
-                          bgColor: _deliveryTasks[index].bgColor,
                           priority: _deliveryTasks[index].priority,
                         ),
                         const SizedBox(height: 12),

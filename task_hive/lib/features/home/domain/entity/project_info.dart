@@ -6,7 +6,6 @@ class ProjectData {
   final DateTime date;
   final String status;
   final List<String> assignee;
-  final Color bgColor;
   final String priority;
   final int percentage;
 
@@ -16,7 +15,6 @@ class ProjectData {
     required this.date,
     required this.status,
     required this.assignee,
-    required this.bgColor,
     required this.priority,
     required this.percentage
   });
