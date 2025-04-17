@@ -6,7 +6,6 @@ class UpcomingDeliveryCard extends StatelessWidget {
   final String dueDate;
   final int progressPercentage;
   final List<String> assignees;
-  final Color bgColor;
   final String priority;
 
   const UpcomingDeliveryCard({
@@ -16,23 +15,20 @@ class UpcomingDeliveryCard extends StatelessWidget {
     this.dueDate = 'N/A',
     this.progressPercentage = 0,
     this.assignees = const [],
-    this.bgColor=Colors.transparent,
     this.priority = 'High'
   });
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     return Container(
       width: double.infinity,
       constraints: const BoxConstraints(maxWidth: 350),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color:  bgColor,
+        color:  getBgColorFromPriority(priority),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-            style: BorderStyle.solid,
-            color: Colors.blue,
-            width: 2.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
@@ -59,10 +55,9 @@ class UpcomingDeliveryCard extends StatelessWidget {
                 ),
                 child: Text(
                   priority,
-                  style: const TextStyle(
+                  style: textTheme.headlineSmall?.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 12,
                   ),
                 ),
               ),
@@ -70,9 +65,8 @@ class UpcomingDeliveryCard extends StatelessWidget {
               // Completion percentage
               Text(
                 '$progressPercentage%',
-                style: const TextStyle(
+                style: textTheme.headlineSmall?.copyWith(
                   color: Colors.white,
-                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -84,10 +78,10 @@ class UpcomingDeliveryCard extends StatelessWidget {
           // Task name
           Text(
             taskName,
-            style: const TextStyle(
+            style: textTheme.headlineMedium?.copyWith(
               color: Colors.white,
               fontSize: 18,
-              fontWeight: FontWeight.bold,
+              // fontWeight: FontWeight.bold,
             ),
           ),
 
@@ -104,7 +98,7 @@ class UpcomingDeliveryCard extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 timeRange,
-                style: const TextStyle(
+                style: textTheme.bodyMedium?.copyWith(
                   color: Colors.white54,
                   fontSize: 14,
                 ),
@@ -122,16 +116,17 @@ class UpcomingDeliveryCard extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   text: 'Due Date: ',
-                  style: const TextStyle(
+                  style: textTheme.bodyMedium?.copyWith(
                     color: Colors.white,
                     fontSize: 14,
+                    fontWeight: FontWeight.bold,
                   ),
                   children: [
                     TextSpan(
                       text: dueDate,
-                      style: const TextStyle(
+                      style: textTheme.bodyMedium?.copyWith(
                         color: Colors.white54,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
                       ),
                     ),
                   ],
@@ -154,6 +149,19 @@ Color getPriorityColor(String priority) {
       return Colors.orange.shade600;
     case 'low':
       return Colors.green.shade600;
+    default:
+      return Colors.grey.shade600;
+  }
+}
+
+Color getBgColorFromPriority(String priority) {
+  switch (priority.toLowerCase()) {
+    case 'high':
+      return Colors.deepPurple;
+    case 'medium':
+      return Colors.deepOrange;
+    case 'low':
+      return Colors.blue;
     default:
       return Colors.grey.shade600;
   }
