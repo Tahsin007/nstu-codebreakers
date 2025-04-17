@@ -1,4 +1,5 @@
 class UserEntity {
+  int? id;
   String? name;
   String? email;
   String? password;
@@ -7,6 +8,7 @@ class UserEntity {
   String? updatedAt;
 
   UserEntity({
+    this.id,
     this.name,
     this.email,
     this.password,
@@ -17,6 +19,7 @@ class UserEntity {
 
   Map<String, dynamic> toJson() {
     return {
+      'user_id': id,
       'full_name': name,
       'email': email,
       'profile_picture': profilePictureUrl,

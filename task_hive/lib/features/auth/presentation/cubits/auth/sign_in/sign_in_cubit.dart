@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../../../core/io/failure.dart';
-import '../../../../../../core/io/success.dart';
 import '../../../../domain/entity/user_entity.dart';
 import '../../../../domain/use_case/auth_use_case.dart';
 
