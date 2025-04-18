@@ -5,6 +5,8 @@ import 'package:task_hive/core/navigation/dummy_pages/dummy_page_2.dart';
 import 'package:task_hive/features/auth/presentation/screens/forget_pass_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/signin_screen.dart';
+import 'package:task_hive/features/home/domain/entities/home_user_entity.dart';
+import 'package:task_hive/features/home/presentation/screens/home_screen.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_1.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_2.dart';
 import 'package:task_hive/features/profile/presentation/screens/profile_screen.dart';
@@ -31,7 +33,7 @@ class MyRouterConfig {
     },
     redirect: (context, state) {
       if (state.uri.path == '/') {
-        return MyRoutes.profile;
+        return MyRoutes.home;
       }
       return null;
     },
@@ -47,7 +49,7 @@ class MyRouterConfig {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: MyRoutes.dummyPage1,
+                path: MyRoutes.home,
                 builder: (context, state) {
                   return const DummyPage1();
                 },
@@ -69,10 +71,7 @@ class MyRouterConfig {
               GoRoute(
                 path: MyRoutes.profile,
                 builder: (context, state) {
-                  final userData = state.extra is UserEntity
-                      ? state.extra as UserEntity
-                      : null;
-                  return ProfileScreen(userData: userData);
+                  return const ProfileScreen();
                 },
               ),
             ],
