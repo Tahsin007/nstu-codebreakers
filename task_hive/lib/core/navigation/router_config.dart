@@ -5,7 +5,6 @@ import 'package:task_hive/core/navigation/dummy_pages/dummy_page_2.dart';
 import 'package:task_hive/features/auth/presentation/screens/forget_pass_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/signin_screen.dart';
-import 'package:task_hive/features/home/presentation/home_screen.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_1.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_2.dart';
 import 'package:task_hive/features/profile/presentation/screens/profile_screen.dart';
@@ -38,7 +37,6 @@ class MyRouterConfig {
     },
     initialLocation: MyRoutes.initialRoute,
     routes: [
-<<<<<<< HEAD
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return ScaffoldWithNestedNavigation(
@@ -80,13 +78,6 @@ class MyRouterConfig {
             ],
           ),
         ],
-=======
-      GoRoute(
-        path: MyRoutes.initialRoute,
-        // builder: (context, state) => const SplashScreen(),
-        builder: (context, state) => const HomePage(),
-
->>>>>>> 2d550cb (Priority tasks and Upcoming delivery cards are made)
       ),
       GoRoute(
         path: "/${MyRoutes.onboard1}",
@@ -113,15 +104,9 @@ class MyRouterConfig {
         builder: (context, state) => const SignUpScreen(),
       ),
       GoRoute(
-<<<<<<< HEAD
         path: MyRoutes.forgotPassword,
         builder: (context, state) => const ForgetPasswordScreen(),
       ),
-=======
-        path: MyRoutes.home,
-        builder: (context, state) => const HomePage(),
-      )
->>>>>>> 2d550cb (Priority tasks and Upcoming delivery cards are made)
     ],
   );
 }
