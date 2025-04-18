@@ -6,6 +6,7 @@ import 'package:task_hive/features/auth/presentation/screens/forget_pass_screen.
 import 'package:task_hive/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/signin_screen.dart';
 import 'package:task_hive/features/home/domain/entities/home_user_entity.dart';
+import 'package:task_hive/features/home/presentation/dashboard_screen.dart';
 import 'package:task_hive/features/home/presentation/screens/home_screen.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_1.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_2.dart';
@@ -51,7 +52,7 @@ class MyRouterConfig {
               GoRoute(
                 path: MyRoutes.home,
                 builder: (context, state) {
-                  return const HomeScreen();
+                  return const HomePage();
                 },
               ),
             ],
@@ -61,7 +62,7 @@ class MyRouterConfig {
               GoRoute(
                 path: MyRoutes.dummyPage2,
                 builder: (context, state) {
-                  return const DummyPage2();
+                  return const HomeScreen();
                 },
               ),
             ],
