@@ -51,14 +51,7 @@ class MyRouterConfig {
               GoRoute(
                 path: MyRoutes.home,
                 builder: (context, state) {
-                  final userData = state.extra is Map<String, dynamic>
-                      ? state.extra as Map<String, dynamic>
-                      : null;
-                  return HomeScreen(
-                    user: HomePageUserEntity.fromJson(
-                      userData ?? {},
-                    ),
-                  );
+                  return const HomeScreen();
                 },
               ),
             ],

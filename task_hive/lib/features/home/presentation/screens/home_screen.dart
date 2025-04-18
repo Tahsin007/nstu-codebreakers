@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/entities/home_user_entity.dart';
 import '../../../../core/di/di.dart';
 import '../cubits/fetch_projects/fetch_projects_cubit.dart';
 import '../cubits/fetch_projects/fetch_projects_state.dart';
+import '../cubits/fetch_user/fetch_user_cubit.dart';
+import '../cubits/fetch_user/fetch_user_state.dart';
 
 class HomeScreen extends StatefulWidget {
-  final HomePageUserEntity user;
-  const HomeScreen({super.key, required this.user});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final fetchProjectCubit = getIt.get<FetchProjectsCubit>();
+  final _fetchProjectCubit = getIt.get<FetchProjectsCubit>();
+  final _fetchUserCubit = getIt.get<FetchUserCubit>();
   @override
   void initState() {
-    print('dbg  ${widget.user.toJson()}');
-    fetchProjectCubit.fetchProjects(userId: widget.user.userId ?? 0);
+    _fetchUserCubit.fetchUser();
     super.initState();
   }
 
   @override
   void dispose() {
-    fetchProjectCubit.close();
+    _fetchProjectCubit.close();
+    _fetchUserCubit.close();
     super.dispose();
   }
 
@@ -42,12 +43,29 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              BlocBuilder<FetchUserCubit, FetchUserState>(
+                bloc: _fetchUserCubit,
+                builder: (context, state) {
+                  if (state is FetchUserLoading) {
+                    return const CircularProgressIndicator(
+                      color: Colors.blue,
+                    );
+                  } else if (state is FetchUserSuccess) {
+                    _fetchProjectCubit.fetchProjects(
+                        userId: state.userData.userId ?? 0);
+                    return Text('Welcome ${state.userData.name}');
+                  } else if (state is FetchUserFailed) {
+                    return Text('Error: ${state.error}');
+                  }
+                  return const SizedBox.shrink();
+                },
+              ),
               const SizedBox(height: 16),
               SingleChildScrollView(
                 child: Column(
                   children: [
                     BlocBuilder<FetchProjectsCubit, FetchProjectsState>(
-                      bloc: fetchProjectCubit,
+                      bloc: _fetchProjectCubit,
                       builder: (context, state) {
                         if (state is FetchProjectsLoading) {
                           return const CircularProgressIndicator(

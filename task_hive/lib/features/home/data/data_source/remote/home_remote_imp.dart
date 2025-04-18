@@ -2,12 +2,12 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../../core/di/di.dart';
 import '../../../../../core/services/auth_service/auth_service.dart';
-import 'project_data_source.dart';
+import 'home_remote.dart';
 
-class ProjectDataSourceImp implements ProjectDataSource {
+class HomeRemoteImpl implements HomeRemote {
   final SupabaseClient supabaseClient;
   final authClient = getIt<AuthService>().getAuthClient();
-  ProjectDataSourceImp({SupabaseClient? supabaseClient})
+  HomeRemoteImpl({SupabaseClient? supabaseClient})
       : supabaseClient =
             supabaseClient ?? getIt<AuthService>().getSupabaseClient();
 
@@ -40,5 +40,16 @@ class ProjectDataSourceImp implements ProjectDataSource {
   Future<void> updateProject(Map<String, dynamic> project) {
     // TODO: implement updateProject
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Map<String, dynamic>> fetchUser(int userId) async {
+    try {
+      final response =
+          await supabaseClient.from('users').select().eq('id', userId).single();
+      return response;
+    } catch (e) {
+      throw Exception('Error retrieving project data: ${e.toString()}');
+    }
   }
 }

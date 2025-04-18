@@ -17,6 +17,7 @@ class AppBlocObserver extends BlocObserver {
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
     logger.i('${bloc.runtimeType} - State Changed: $change');
+    logger.i('State data: ${change.currentState}');
   }
 
   @override

@@ -19,9 +19,8 @@ class UserEntity {
 
   Map<String, dynamic> toJson() {
     return {
-      'user_id': id,
-      'full_name': name,
-      'email': email,
+      'full_name': name ?? 'No name',
+      'email': email ?? 'No email',
       'profile_picture': profilePictureUrl,
       'created_at': createdAt ?? DateTime.now().toIso8601String(),
       'updated_at': updatedAt ?? DateTime.now().toIso8601String(),

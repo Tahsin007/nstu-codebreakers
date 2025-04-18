@@ -170,8 +170,11 @@ class _SignInScreenState extends State<SignInScreen> {
         listener: (context, state) {
           if (state is SignInSuccess) {
             _showSnackbar(
-                context, 'Successfully Signed in', colorTheme.primary);
-            context.go(MyRoutes.home, extra: state.userData.toJson());
+              context,
+              state.success.message,
+              colorTheme.primary,
+            );
+            context.go(MyRoutes.home);
           } else if (state is SignInFailed) {
             _showSnackbar(context, state.failure.message, colorTheme.error);
           }
