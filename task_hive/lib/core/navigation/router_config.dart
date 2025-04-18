@@ -6,13 +6,13 @@ import 'package:task_hive/features/auth/presentation/screens/forget_pass_screen.
 import 'package:task_hive/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/signin_screen.dart';
 import 'package:task_hive/features/home/domain/entities/home_user_entity.dart';
-import 'package:task_hive/features/home/presentation/dashboard_screen.dart';
 import 'package:task_hive/features/home/presentation/screens/home_screen.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_1.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_2.dart';
 import 'package:task_hive/features/profile/presentation/screens/profile_screen.dart';
 
 import '../../features/auth/domain/entity/user_entity.dart';
+import '../../features/home/presentation/screens/dashboard_screen.dart';
 import '../../features/onboarding/presentation/screens/onboard_screen_3.dart';
 import 'error_page.dart';
 import 'nav_bar.dart';
