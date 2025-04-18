@@ -28,13 +28,6 @@ class _SignInScreenState extends State<SignInScreen> {
   final _emailValidationCubit = EmailValidationCubit();
 
   final _signInCubit = getIt<SignInCubit>();
-  final _emailCtrl = TextEditingController();
-  final _passCtrl = TextEditingController();
-
-  final _passValidationCubit = PasswordValidationCubit();
-  final _emailValidationCubit = EmailValidationCubit();
-
-  final _signInCubit = getIt<SignInCubit>();
 
   @override
   void initState() {
@@ -54,21 +47,7 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   @override
-  void dispose() {
-    _emailCtrl.dispose();
-    _passCtrl.dispose();
-
-    _emailValidationCubit.close();
-    _passValidationCubit.close();
-    _signInCubit.close();
-
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
