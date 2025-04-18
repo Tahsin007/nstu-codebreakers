@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:task_hive/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:task_hive/features/auth/presentation/screens/signin_screen.dart';
-import 'package:task_hive/features/home/presentation/home_screen.dart';
+import 'package:task_hive/features/home/presentation/dashboard_screen.dart';
+import 'package:task_hive/features/home/presentation/projects_screen.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_1.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_2.dart';
 import 'package:task_hive/features/onboarding/presentation/screens/splash_screen.dart';
@@ -21,7 +22,8 @@ class MyRouterConfig {
       GoRoute(
         path: MyRoutes.initialRoute,
         // builder: (context, state) => const SplashScreen(),
-        builder: (context, state) => const HomePage(),
+        // builder: (context, state) => const HomePage(),
+        builder: (context, state) => const ProjectsScreen(),
 
       ),
       GoRoute(
@@ -55,7 +57,11 @@ class MyRouterConfig {
       GoRoute(
         path: MyRoutes.home,
         builder: (context, state) => const HomePage(),
-      )
+      ),
+      GoRoute(
+        path: MyRoutes.projects,
+        builder: (context, state) => const ProjectsScreen(),
+      ),
     ],
   );
 }

@@ -15,4 +15,5 @@ class MyRoutes {
   static String profile = '/profile';
 
   static String home = '/home';
+  static String projects = '/projects';
 }
