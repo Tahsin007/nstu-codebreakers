@@ -12,6 +12,7 @@ import 'package:task_hive/features/onboarding/presentation/screens/onboard_scree
 import 'package:task_hive/features/onboarding/presentation/screens/onboard_screen_2.dart';
 import 'package:task_hive/features/profile/presentation/screens/profile_screen.dart';
 import 'package:task_hive/features/project_details/presentation/screens/task_create_screen.dart';
+import 'package:task_hive/features/task_details/presentation/TaskDetailsScreen.dart';
 
 import '../../features/auth/domain/entity/user_entity.dart';
 import '../../features/home/domain/entities/project_entity.dart';
@@ -42,6 +43,8 @@ class MyRouterConfig {
       return null;
     },
     initialLocation: MyRoutes.initialRoute,
+    // initialLocation: MyRoutes.taskDetails,
+
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
@@ -126,6 +129,10 @@ class MyRouterConfig {
       GoRoute(
         path: MyRoutes.forgotPassword,
         builder: (context, state) => const ForgetPasswordScreen(),
+      ),
+      GoRoute(
+        path: MyRoutes.taskDetails,
+        builder: (context, state) => const TaskDetailsPage(),
       ),
     ],
   );
