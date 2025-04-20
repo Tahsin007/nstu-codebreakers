@@ -526,17 +526,6 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                             padding: const EdgeInsets.only(bottom: 0.0),
                             child: Row(
                               children: [
-                                // InkWell(
-                                //   // onTap: () => _toggleSubtask(i),
-                                //   child: Icon(
-                                //     _subtasks[i].isCompleted
-                                //         ? Icons.check_box
-                                //         : Icons.check_box_outline_blank,
-                                //     color: colorScheme.primary,
-                                //     size: 22,
-                                //   ),
-                                // ),
-                                // const SizedBox(width: 8),
                                 Expanded(
                                   child: Text(
                                     _assignedMembers[i].name ?? 'N/A',
@@ -733,6 +722,13 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
           ),
         );
       }).toList(),
+      // hint: Text(
+      //   hint ?? 'Select an option',
+      //   style: Theme.of(context).textTheme.labelLarge?.copyWith(
+      //         color: Colors.grey[700],
+      //       ),
+      // ),
+      style: Theme.of(context).textTheme.titleMedium,
       onChanged: onChanged,
       validator: validator,
       decoration: InputDecoration(
@@ -751,6 +747,10 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(2),
           borderSide: const BorderSide(color: Colors.red),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(2),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
         ),
         hintText: hint,
         filled: backgroundColor != null,
