@@ -12,6 +12,7 @@ import '../../domain/entity/project_info.dart';
 
 class HomePage extends StatefulWidget {
   final ProjectEntity? projectEntity;
+
   const HomePage({super.key, this.projectEntity});
 
   @override
@@ -64,20 +65,20 @@ class _HomePageState extends State<HomePage> {
     final formattedDate = _formatDate(now);
 
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context.go(MyRoutes.createTask,
-                extra: {'project_id': widget.projectEntity?.id});
-          },
-          backgroundColor: colorScheme.surface,
-          foregroundColor: colorScheme.onSurface,
-          child: const Icon(Icons.add),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        body: SafeArea(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.go(MyRoutes.createTask,
+              extra: {'project_id': widget.projectEntity?.id});
+        },
+        backgroundColor: colorScheme.surface,
+        foregroundColor: colorScheme.onSurface,
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -152,35 +153,33 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 15),
 
-                // Delivery task cards - Scrollable
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: _deliveryTasks.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          UpcomingDeliveryCard(
-                            taskName: _deliveryTasks[index].title,
-                            // timeRange: _deliveryTasks[index].date.toString(),
-                            dueDate: _deliveryTasks[index].date.toString(),
-                            progressPercentage:
-                                _deliveryTasks[index].percentage,
-                            assignees: _deliveryTasks[index].assignee,
-                            priority: _deliveryTasks[index].priority,
-                          ),
-                          const SizedBox(height: 12),
-                        ],
-                      );
-                      // return _buildDeliveryTaskCard(_deliveryTasks[index]);
-                    },
-                  ),
+                // Delivery task cards
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: _deliveryTasks.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        UpcomingDeliveryCard(
+                          taskName: _deliveryTasks[index].title,
+                          dueDate: _deliveryTasks[index].date.toString(),
+                          progressPercentage: _deliveryTasks[index].percentage,
+                          assignees: _deliveryTasks[index].assignee,
+                          priority: _deliveryTasks[index].priority,
+                        ),
+                        const SizedBox(height: 12),
+                      ],
+                    );
+                  },
                 ),
               ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
-}
 
 String _formatDate(DateTime date) {
   final List<String> weekdays = [
